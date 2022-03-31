@@ -17,5 +17,4 @@ public class Calculadora {
 		this.operador = operador;
 	}
 	
-	
 }

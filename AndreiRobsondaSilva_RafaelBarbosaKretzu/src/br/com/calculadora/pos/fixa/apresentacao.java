@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextPane;
 
 public class apresentacao {
 
@@ -44,25 +46,30 @@ public class apresentacao {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("Din\u00E2mica");
-		btnNewButton.setBounds(217, 198, 89, 23);
-		frame.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Vetor");
-		btnNewButton_1.setBounds(316, 198, 89, 23);
-		frame.getContentPane().add(btnNewButton_1);
-		
-		JLabel lblNewLabel = new JLabel("Calcular baseado em:");
-		lblNewLabel.setBounds(217, 173, 188, 14);
-		frame.getContentPane().add(lblNewLabel);
-		
 		JLabel lblNewLabel_1 = new JLabel("Digite seu calculo aqui:");
-		lblNewLabel_1.setBounds(80, 117, 124, 14);
+		lblNewLabel_1.setBounds(10, 22, 138, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
-		textField.setBounds(79, 142, 300, 20);
+		textField.setBounds(147, 19, 277, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Din\u00E2mica");
+		rdbtnNewRadioButton.setBounds(255, 46, 89, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnVetor = new JRadioButton("Vetor");
+		rdbtnVetor.setBounds(348, 46, 76, 23);
+		frame.getContentPane().add(rdbtnVetor);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setEditable(false);
+		textPane.setBounds(10, 70, 414, 146);
+		frame.getContentPane().add(textPane);
+		
+		JButton btnNewButton = new JButton("Calcular");
+		btnNewButton.setBounds(335, 227, 89, 23);
+		frame.getContentPane().add(btnNewButton);
 	}
 }
