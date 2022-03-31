@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\PC\OneDrive - FURB\3_Semestre\EDA\EDA-Trabalho-Um\.metadata\.plugins\org.eclipse.jdt.core
+2765800553.index
+1865797976.index
+873918880.index
