@@ -10,10 +10,10 @@ public class Calculadora {
 	public void setOperandos(float operandos) {
 		this.operandos = operandos;
 	}
-	public Strig getOperador() {
+	public String getOperador() {
 		return operador;
 	}
-	public void setOperador(Strig operador) {
+	public void setOperador(String operador) {
 		this.operador = operador;
 	}
 	
