@@ -27,28 +27,14 @@ public class CalculadoraDinamica implements Calculadora {
 		return 0;
 	} 
 
-	public void operador() {
-		// 8 9 7 - + = 10
-		
-		switch (operador) {
-		case'+':
-			somar();
-			break;
-		case '-':
-			subtrair();
-			break;
-		case '/':
-			dividir();
-			break;
-		case '*':
-			multiplicar();
-			break;
-		default: adicionarNumeroNaPilha();
-		}
-	}
-
 	private void adicionarNumeroNaPilha() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public float calcular(String calculo) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
