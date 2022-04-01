@@ -1,0 +1,8 @@
+package br.com.calculadora.pos.fixa;
+
+import lineares.ListaEncadeada;
+
+public class CalculadoraDinamica {
+	private ListaEncadeada<Float> operandos = new ListaEncadeada<>(); 
+
+}

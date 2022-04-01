@@ -1,0 +1,8 @@
+package br.com.calculadora.pos.fixa;
+
+import lineares.ListaEstatica;
+
+public class CalculadoraVetor {
+	private ListaEstatica<Float> operandos = new ListaEstatica<>();
+	
+}

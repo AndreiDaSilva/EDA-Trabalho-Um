@@ -1,20 +1,10 @@
 package br.com.calculadora.pos.fixa;
 
-public class Calculadora {
-	private float operandos;
-	private String operador;
-	
-	public float getOperandos() {
-		return operandos;
-	}
-	public void setOperandos(float operandos) {
-		this.operandos = operandos;
-	}
-	public String getOperador() {
-		return operador;
-	}
-	public void setOperador(String operador) {
-		this.operador = operador;
-	}
+public interface Calculadora {
+	float dividir();
+	float somar();
+	float subtrair();
+	float multiplicar();
+	float calcular(String calculo);
 	
 }

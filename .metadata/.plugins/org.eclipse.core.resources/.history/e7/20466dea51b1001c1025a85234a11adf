@@ -1,0 +1,32 @@
+package br.com.calculadora.pos.fixa;
+
+import lineares.ListaEncadeada;
+
+public class CalculadoraDinamica implements Calculadora {
+	private ListaEncadeada<Float> operandos = new ListaEncadeada<>();
+
+	@Override
+	public float dividir() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public float somar() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public float subtrair() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public float multiplicar() {
+		// TODO Auto-generated method stub
+		return 0;
+	} 
+
+}

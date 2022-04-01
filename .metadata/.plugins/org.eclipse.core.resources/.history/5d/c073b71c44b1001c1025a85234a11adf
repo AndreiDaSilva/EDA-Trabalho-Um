@@ -1,0 +1,25 @@
+package br.com.calculadora.pos.fixa;
+
+public class Calculadora {
+	private String calculo;
+	private float resultado;
+	
+	public float getResultado() {
+		return resultado;
+	}
+	public void setResultado(float resultado) {
+		this.resultado = resultado;
+	}
+	public String getCalculo() {
+		return calculo;
+	}
+	public void setCalculo(String calculo) {
+		this.calculo = calculo;
+	}
+	
+	public float calcular() {
+		
+	}
+	
+	
+}

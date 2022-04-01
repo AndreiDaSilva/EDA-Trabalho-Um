@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="lineares.ListaEncadeada"/>
+    <fullyQualifiedTypeName name="lineares.ListaEstatica"/>
+    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.Calculadora"/>
+    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.Pilha"/>
+    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.PilhaVetor"/>
+    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.PilhaDinamica"/>
+    <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+</qualifiedTypeNameHistroy>
