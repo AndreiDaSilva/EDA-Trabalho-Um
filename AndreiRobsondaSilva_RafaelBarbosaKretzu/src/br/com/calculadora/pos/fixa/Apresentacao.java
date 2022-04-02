@@ -17,7 +17,7 @@ public class Apresentacao {
 
 	private JFrame frame;
 	private JTextField tf_Calculo;
-	private JRadioButton rdbtnNewRadioButton;
+	private JRadioButton rdbtnDinamica;
 	private JRadioButton rdbtnVetor;
 	
 
@@ -62,27 +62,27 @@ public class Apresentacao {
 		frame.getContentPane().add(tf_Calculo);
 		tf_Calculo.setColumns(10);
 		
-		rdbtnNewRadioButton = new JRadioButton("Din\u00E2mica");
-		rdbtnNewRadioButton.setSelected(true);
-		rdbtnNewRadioButton.addChangeListener(new ChangeListener() {
+		rdbtnDinamica = new JRadioButton("Din\u00E2mica");
+		rdbtnDinamica.setSelected(true);
+		rdbtnDinamica.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
-				if(rdbtnNewRadioButton.isSelected()) {
+				if(rdbtnDinamica.isSelected()) {
 					rdbtnVetor.setSelected(false);
 				} else {
 					rdbtnVetor.setSelected(true);
 				}
 			}
 		});
-		rdbtnNewRadioButton.setBounds(255, 46, 89, 23);
-		frame.getContentPane().add(rdbtnNewRadioButton);
+		rdbtnDinamica.setBounds(255, 46, 89, 23);
+		frame.getContentPane().add(rdbtnDinamica);
 		
 		rdbtnVetor = new JRadioButton("Vetor");
 		rdbtnVetor.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				if(rdbtnVetor.isSelected()) {
-					rdbtnNewRadioButton.setSelected(false);
+					rdbtnDinamica.setSelected(false);
 				} else {
-					rdbtnNewRadioButton.setSelected(true);
+					rdbtnDinamica.setSelected(true);
 				}
 			}
 		});
@@ -98,27 +98,18 @@ public class Apresentacao {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			try {
-				if(rdbtnVetor.isSelected()) {
-					CalculadoraVetor cVetor = new CalculadoraVetor();   
-					if(cVetor.validar(tf_Calculo.getText())) {
-						cVetor.calcular(tf_Calculo.getText());
-					} else {
-						//exeption
-					}
-				} else if (rdbtnNewRadioButton.isSelected()){
-					CalculadoraDinamica cDinamica = new CalculadoraDinamica();
-					if(cDinamica.validar(tf_Calculo.getText())) {
-						cDinamica.calcular(tf_Calculo.getText());
-					} else {
-						//exeptio
-					}
+				Calculadora cVetor = new Calculadora(rdbtnDinamica.isSelected(), tf_Calculo.getText().length());   
+				if(cVetor.validar(tf_Calculo.getText())) {
+					cVetor.calcular(tf_Calculo.getText());
+				} else {
+					//exeption
 				}
 			} catch (Exception e2) {
 				// TODO: handle exception
 			}
 				
 			}
-			}
+			
 		});
 		btnNewButton.setBounds(335, 227, 89, 23);
 		frame.getContentPane().add(btnNewButton);

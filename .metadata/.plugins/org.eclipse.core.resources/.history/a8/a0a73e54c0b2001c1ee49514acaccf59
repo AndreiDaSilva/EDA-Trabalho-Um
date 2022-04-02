@@ -1,0 +1,59 @@
+package br.com.calculadora.pos.fixa;
+
+
+public class PilhaDinamica<T> implements Pilha<T> {
+    private ListaEncadeada<T> lista;
+    private int limite;
+    private int tamanhoAtual;
+
+    public PilhaDinamica(int limite) {
+        this.limite = limite;
+        this.lista = new ListaEncadeada<T>();
+    }
+
+    @Override
+    public void push(T info) {
+        if (limite == tamanhoAtual) {
+            throw new RuntimeException("Capacidade Esgotada na Pilha");
+        }
+        this.lista.inserir(info);
+        tamanhoAtual++;
+    }
+
+    @Override
+    public T pop() {
+        T valor = this.peek();
+        tamanhoAtual--;
+        lista.retirar(valor);
+        return valor;
+    }
+
+    @Override
+    public T peek() {
+        if (estaVazia()) {
+            throw new RuntimeException("Pilha está vazia");
+        }
+        return lista.pegar(lista.getTamanho() - 1);
+    }
+
+    @Override
+    public boolean estaVazia() {
+        return (tamanhoAtual == 0);
+    }
+
+    @Override
+    public void liberar() {
+        this.lista = new ListaEncadeada<T>();
+        this.tamanhoAtual = 0;
+    }
+
+    @Override
+    public String toString() {
+        String str = "topo[";
+         for (int i = tamanhoAtual-1; i >= 0; i--) {
+                str += lista.pegar(i).toString()+", ";
+            }
+        return str+"]base";
+    }
+
+}

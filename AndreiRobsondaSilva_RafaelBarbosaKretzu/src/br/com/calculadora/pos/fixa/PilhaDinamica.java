@@ -1,40 +1,59 @@
 package br.com.calculadora.pos.fixa;
 
-public class PilhaDinamica<T> implements Pilha<T>{
-	private int limite;
-	
-	public PilhaDinamica(int limite) {
-		this.limite = limite;
-	}
-	
-	@Override
-	public void push(T info) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public T pop() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public class PilhaDinamica<T> implements Pilha<T> {
+    private ListaEncadeada<T> listaEncadeada;
+    private int limite;
+    private int tamanhoAtual;
 
-	@Override
-	public T peek() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public PilhaDinamica(int limite) {
+        this.limite = limite;
+        this.listaEncadeada = new ListaEncadeada<T>();
+    }
 
-	@Override
-	public boolean estaVazia() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public void push(T info) {
+        if (limite == tamanhoAtual) {
+            throw new RuntimeException("Capacidade Esgotada na Pilha");
+        }
+        this.listaEncadeada.inserir(info);
+        tamanhoAtual++;
+    }
 
-	@Override
-	public void liberar() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public T pop() {
+        T valor = this.peek();
+        tamanhoAtual--;
+        listaEncadeada.retirar(valor);
+        return valor;
+    }
+
+    @Override
+    public T peek() {
+        if (estaVazia()) {
+            throw new RuntimeException("Pilha está vazia");
+        }
+        return listaEncadeada.pegar(listaEncadeada.getTamanho() - 1);
+    }
+
+    @Override
+    public boolean estaVazia() {
+        return (tamanhoAtual == 0);
+    }
+
+    @Override
+    public void liberar() {
+        this.listaEncadeada = new ListaEncadeada<T>();
+        this.tamanhoAtual = 0;
+    }
+
+    @Override
+    public String toString() {
+        String str = "topo[";
+         for (int i = tamanhoAtual-1; i >= 0; i--) {
+                str += listaEncadeada.pegar(i).toString()+", ";
+            }
+        return str+"]base";
+    }
 
 }

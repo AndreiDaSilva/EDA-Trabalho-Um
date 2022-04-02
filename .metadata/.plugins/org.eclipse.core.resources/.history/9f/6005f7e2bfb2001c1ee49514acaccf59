@@ -1,0 +1,117 @@
+package br.com.calculadora.pos.fixa;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+
+public class Apresentacao {
+
+	private JFrame frame;
+	private JTextField tf_Calculo;
+	private JRadioButton rdbtnDinamica;
+	private JRadioButton rdbtnVetor;
+	
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Apresentacao window = new Apresentacao();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Apresentacao() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Digite seu calculo aqui:");
+		lblNewLabel_1.setBounds(10, 22, 138, 14);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		tf_Calculo = new JTextField();
+		tf_Calculo.setBounds(147, 19, 277, 20);
+		frame.getContentPane().add(tf_Calculo);
+		tf_Calculo.setColumns(10);
+		
+		rdbtnDinamica = new JRadioButton("Din\u00E2mica");
+		rdbtnDinamica.setSelected(true);
+		rdbtnDinamica.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if(rdbtnDinamica.isSelected()) {
+					rdbtnVetor.setSelected(false);
+				} else {
+					rdbtnVetor.setSelected(true);
+				}
+			}
+		});
+		rdbtnDinamica.setBounds(255, 46, 89, 23);
+		frame.getContentPane().add(rdbtnDinamica);
+		
+		rdbtnVetor = new JRadioButton("Vetor");
+		rdbtnVetor.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if(rdbtnVetor.isSelected()) {
+					rdbtnDinamica.setSelected(false);
+				} else {
+					rdbtnDinamica.setSelected(true);
+				}
+			}
+		});
+		rdbtnVetor.setBounds(348, 46, 76, 23);
+		frame.getContentPane().add(rdbtnVetor);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setEditable(false);
+		textPane.setBounds(10, 70, 414, 146);
+		frame.getContentPane().add(textPane);
+		
+		JButton btnNewButton = new JButton("Calcular");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			try {
+				Calculadora cVetor = new Calculadora();   
+				if(cVetor.validar(tf_Calculo.getText())) {
+					cVetor.calcular(tf_Calculo.getText());
+				} else {
+					//exeption
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+				
+			}
+			
+		});
+		btnNewButton.setBounds(335, 227, 89, 23);
+		frame.getContentPane().add(btnNewButton);
+	}
+}
