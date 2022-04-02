@@ -98,21 +98,9 @@ public class Apresentacao {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			try {
-				if(rdbtnVetor.isSelected()) {
-					CalculadoraVetor cVetor = new CalculadoraVetor();   
-					if(cVetor.validar(tf_Calculo.getText())) {
-						cVetor.calcular(tf_Calculo.getText());
-					} else {
-						//exeption
-					}
-				} else if (rdbtnNewRadioButton.isSelected()){
-					CalculadoraDinamica cDinamica = new CalculadoraDinamica();
-					if(cDinamica.validar(tf_Calculo.getText())) {
-						cDinamica.calcular(tf_Calculo.getText());
-					} else {
-						//exeptio
-					}
-				}
+				//if() {
+					
+				//}
 			} catch (Exception e2) {
 				// TODO: handle exception
 			}

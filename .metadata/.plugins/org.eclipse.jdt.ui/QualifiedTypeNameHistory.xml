@@ -8,4 +8,6 @@
     <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.PilhaDinamica"/>
     <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.CalculadoraVetor"/>
+    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.CalculadoraDinamica"/>
 </qualifiedTypeNameHistroy>

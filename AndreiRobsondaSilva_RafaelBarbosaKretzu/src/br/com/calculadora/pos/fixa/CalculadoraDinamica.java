@@ -37,4 +37,33 @@ public class CalculadoraDinamica implements Calculadora {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	public boolean validar(String text) {
+		int  numeros, operadores;
+        char c;
+        numeros = 0;
+        operadores = 0;
+        for (int i = 0; i <= calculo.length(); i++) {
+            c = calculo.charAt(i);
+            if (Character.isAlphabetic(c)) {
+                //Exeption
+            } else if (c == ' ' ) {
+                if (Character.isDigit(c)) {
+                    numeros++;
+                } else {
+                    operadores++;
+                }
+            } else if (i == calculo.length()) {
+                if (c == '-' || c == '+' || c == '*' || c == '/') {
+                    operadores++;
+                }
+            }
+        }
+
+        if (numeros-- == operadores) {
+            return true;
+        }
+
+		return false;
+	}
 }

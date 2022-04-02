@@ -97,27 +97,7 @@ public class Apresentacao {
 		JButton btnNewButton = new JButton("Calcular");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			try {
-				if(rdbtnVetor.isSelected()) {
-					CalculadoraVetor cVetor = new CalculadoraVetor();   
-					if(cVetor.validar(tf_Calculo.getText())) {
-						cVetor.calcular(tf_Calculo.getText());
-					} else {
-						//exeption
-					}
-				} else if (rdbtnNewRadioButton.isSelected()){
-					CalculadoraDinamica cDinamica = new CalculadoraDinamica();
-					if(cDinamica.validar(tf_Calculo.getText())) {
-						cDinamica.calcular(tf_Calculo.getText());
-					} else {
-						//exeptio
-					}
-				}
-			} catch (Exception e2) {
-				// TODO: handle exception
-			}
-				
-			}
+			
 			}
 		});
 		btnNewButton.setBounds(335, 227, 89, 23);

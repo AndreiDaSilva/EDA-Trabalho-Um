@@ -86,17 +86,17 @@ public class CalculadoraVetor implements Calculadora{
 	}
 
 	public boolean validar(String calculo){
-		int  operando, operadores;
+		int  numeros, operadores;
         char c;
-        operando = 0;
+        numeros = 0;
         operadores = 0;
         for (int i = 0; i <= calculo.length(); i++) {
             c = calculo.charAt(i);
             if (Character.isAlphabetic(c)) {
                 //Exeption
             } else if (c == ' ' ) {
-                if (Character.isDigit(calculo.charAt(i -1))) {
-                    operando++;
+                if (Character.isDigit(c)) {
+                    numeros++;
                 } else {
                     operadores++;
                 }
@@ -107,7 +107,7 @@ public class CalculadoraVetor implements Calculadora{
             }
         }
 
-        if (operando-- == operadores) {
+        if (numeros-- == operadores) {
             return true;
         }
 

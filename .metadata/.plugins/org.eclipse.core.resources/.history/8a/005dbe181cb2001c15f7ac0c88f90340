@@ -85,33 +85,12 @@ public class CalculadoraVetor implements Calculadora{
 		operandos.push(valor);
 	}
 
-	public boolean validar(String calculo){
-		int  operando, operadores;
-        char c;
-        operando = 0;
-        operadores = 0;
-        for (int i = 0; i <= calculo.length(); i++) {
-            c = calculo.charAt(i);
-            if (Character.isAlphabetic(c)) {
-                //Exeption
-            } else if (c == ' ' ) {
-                if (Character.isDigit(calculo.charAt(i -1))) {
-                    operando++;
-                } else {
-                    operadores++;
-                }
-            } else if (i == calculo.length()) {
-                if (c == '-' || c == '+' || c == '*' || c == '/') {
-                    operadores++;
-                }
-            }
-        }
-
-        if (operando-- == operadores) {
-            return true;
-        }
-
-        return false;
+	private void verificarContaValida(String calculo){
+		int cont = 0;
+		for (int i = 0; i < calculo.length(); i++) {
+			
+			}
+			
+		}
 	}
-}
 

@@ -106,12 +106,7 @@ public class Apresentacao {
 						//exeption
 					}
 				} else if (rdbtnNewRadioButton.isSelected()){
-					CalculadoraDinamica cDinamica = new CalculadoraDinamica();
-					if(cDinamica.validar(tf_Calculo.getText())) {
-						cDinamica.calcular(tf_Calculo.getText());
-					} else {
-						//exeptio
-					}
+					
 				}
 			} catch (Exception e2) {
 				// TODO: handle exception
