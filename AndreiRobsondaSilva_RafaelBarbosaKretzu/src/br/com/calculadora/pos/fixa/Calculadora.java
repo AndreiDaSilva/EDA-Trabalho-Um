@@ -11,37 +11,33 @@ public class Calculadora {
 	}
 	
 	
-	public float dividir() {
+	public void dividir() {
+		float operando1 = operandos.pop();
+		float operando2 = operandos.pop();		
 		
-		try {
-			float operando1 = operandos.pop();
-			float operando2 = operandos.pop();		
-			return operando2/operando1;
-		} catch (RuntimeException e) {
-			throw new RuntimeException("Calculo invalido");
-		}
+		operandos.push(operando2/operando1);
 	}
 
-	public float somar() {
+	public void somar() {
 		float operando1 = operandos.pop();
 		float operando2 = operandos.pop();
 				
-		return operando2+operando1;
+		operandos.push(operando2+operando1);
 	}
 
-	public float subtrair() {
+	public void subtrair() {
 		float operando1 = operandos.pop();
 		float operando2 = operandos.pop();
 				
-		return operando2-operando1;
+		operandos.push(operando2-operando1);
 	}
 
 	
-	public float multiplicar() {
+	public void multiplicar() {
 		float operando1 = operandos.pop();
 		float operando2 = operandos.pop();
 		
-		return operando2*operando1;
+		operandos.push(operando2*operando1);
 		
 	}
 	
@@ -51,12 +47,10 @@ public class Calculadora {
 		String[] temp = calculo.split(" ");
 		
 		for (String valor : temp) {
-			
 			char caracter = valor.charAt(0);
-			Float resultadoOperandos = null;
 			switch (caracter) {
 			case'+':
-				resultadoOperandos = somar();
+				somar();
 				break;
 			case '-':
 				subtrair();
@@ -67,10 +61,7 @@ public class Calculadora {
 			case '*':
 				multiplicar();
 				break;
-			default: adicionarNumeroNaPilha(converteValor(valor));
-			}		
-			if (resultadoOperandos != null) {
-				adicionarNumeroNaPilha(resultadoOperandos);
+			default: operandos.push(converteValor(valor));
 			}
 		}
 		
@@ -85,11 +76,7 @@ public class Calculadora {
 		}
 	}
 
-	private void adicionarNumeroNaPilha(float valor) {
-		operandos.push(valor);
-	}
-
-	public boolean validar(String calculo){
+	public void validar(String calculo){
 		int  operando, operadores;
         char c;
         operando = 0;
@@ -97,7 +84,7 @@ public class Calculadora {
         for (int i = 0; i < calculo.length(); i++) {
             c = calculo.charAt(i);
             if (Character.isAlphabetic(c)) {
-                //Exeption
+                throw new RuntimeException("Caractér não reconhecido para cálculo");
             } else if (c == ' ' ) {
                 if (Character.isDigit(calculo.charAt(i -1))) {
                     operando++;
@@ -105,17 +92,22 @@ public class Calculadora {
                     operadores++;
                 }
             } else if (i == calculo.length() -1) {
-                if (c == '-' || c == '+' || c == '*' || c == '/') {
+                if (isOperador(c)) {
                     operadores++;
                 }
             }
         }
-
-        if ((operando-1) == operadores) {
-            return true;
+        boolean calculoIsValid = (operando-1) == operadores;
+        if (!calculoIsValid) {
+            throw new RuntimeException("Cálculo inválido. Exemplos de cáculos válidos:\n"
+            		+ "1 2 - 4 5 + *;\n"
+            		+ "23 12 + 7 / 3 12 – 5 + *");
         }
+	}
 
-        return false;
+
+	private boolean isOperador(char c) {
+		return (c == '-' || c == '+' || c == '*' || c == '/');
 	}
 }
 
