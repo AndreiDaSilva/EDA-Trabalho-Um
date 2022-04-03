@@ -2,12 +2,13 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="lineares.ListaEncadeada"/>
     <fullyQualifiedTypeName name="lineares.ListaEstatica"/>
-    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.Calculadora"/>
     <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.Pilha"/>
-    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.PilhaVetor"/>
-    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.PilhaDinamica"/>
     <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
-    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.CalculadoraVetor"/>
     <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.CalculadoraDinamica"/>
+    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.PilhaDinamica"/>
+    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.PilhaVetor"/>
+    <fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
+    <fullyQualifiedTypeName name="br.com.calculadora.pos.fixa.Calculadora"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
 </qualifiedTypeNameHistroy>

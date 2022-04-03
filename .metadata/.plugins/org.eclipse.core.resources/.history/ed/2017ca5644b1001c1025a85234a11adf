@@ -1,5 +1,0 @@
-package br.com.calculadora.pos.fixa;
-
-public interface Calculadora {
-
-}

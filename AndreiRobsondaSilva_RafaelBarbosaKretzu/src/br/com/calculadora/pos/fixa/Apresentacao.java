@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Apresentacao {
 
@@ -58,6 +60,15 @@ public class Apresentacao {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		tf_Calculo = new JTextField();
+		tf_Calculo.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char entrada = e.getKeyChar();
+				if(!Calculadora.isDigitoValido(entrada)) {
+					e.consume();
+				}
+			}
+		});
 		tf_Calculo.setBounds(147, 19, 277, 20);
 		frame.getContentPane().add(tf_Calculo);
 		tf_Calculo.setColumns(10);
