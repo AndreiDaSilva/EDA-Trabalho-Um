@@ -52,7 +52,9 @@ public class ListaEncadeada<T> implements Lista<T> {
 	public void retirar(T valor) {
 		NoLista<T> anterior = null;
 		NoLista<T> p = primeiro;
-
+		if (this.estaVazia()) {
+			throw new RuntimeException("Quantidade de elementos é igual a ZERO(0)");
+		}
 		while (p != null && !p.getInfo().equals(valor)) {
 			anterior = p;
 			p = p.getProx();
@@ -133,6 +135,23 @@ public class ListaEncadeada<T> implements Lista<T> {
 			posicaoAtual++;
 		} while (noEncontrado == null);
 		return noEncontrado.getInfo();
+	}
+	
+	public T retirarUltimo() {
+		NoLista<T> anteriorUltimo = this.primeiro;
+		NoLista<T> ultimoNo = this.ultimo;
+		NoLista<T> atual = this.primeiro;
+		if (this.estaVazia()) {
+			throw new RuntimeException("Quantidade de elementos é igual a ZERO(0)");
+		}
+		while (!atual.equals(ultimoNo)) {
+			anteriorUltimo = atual;
+			atual = atual.getProx();
+		}
+		this.ultimo = anteriorUltimo;
+		this.ultimo.setProx(null);
+		qtdElementos--;
+		return ultimoNo.getInfo();
 	}
 
 }

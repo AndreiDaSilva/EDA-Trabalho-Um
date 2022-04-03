@@ -3,29 +3,22 @@ package br.com.calculadora.pos.fixa;
 
 public class PilhaDinamica<T> implements Pilha<T> {
     private ListaEncadeada<T> listaEncadeada;
-    private int limite;
     private int tamanhoAtual;
 
-    public PilhaDinamica(int limite) {
-        this.limite = limite;
+    public PilhaDinamica() {
         this.listaEncadeada = new ListaEncadeada<T>();
     }
 
     @Override
     public void push(T info) {
-        if (limite == tamanhoAtual) {
-            throw new RuntimeException("Capacidade Esgotada na Pilha");
-        }
         this.listaEncadeada.inserir(info);
         tamanhoAtual++;
     }
 
     @Override
     public T pop() {
-        T valor = this.peek();
-        tamanhoAtual--;
-        listaEncadeada.retirar(valor);
-        return valor;
+        T ultimo = listaEncadeada.retirarUltimo();
+        return ultimo;
     }
 
     @Override

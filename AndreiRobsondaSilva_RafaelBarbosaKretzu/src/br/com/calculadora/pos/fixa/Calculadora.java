@@ -8,7 +8,7 @@ public class Calculadora {
 
 	public Calculadora(boolean isDinamica, int limite) {
 		if (isDinamica) {
-			operandos = new PilhaDinamica<>(limite);
+			operandos = new PilhaDinamica<>();
 		} else {
 			operandos = new PilhaVetor<>(limite);
 		}
@@ -90,7 +90,11 @@ public class Calculadora {
 	}
 
 	private float converteValor(String valor) {
-		return Float.parseFloat(valor);
+		try {			
+			return Float.parseFloat(valor);
+		} catch (NumberFormatException nfe) {
+			throw new NumberFormatException("Caracter inválido encontrado");
+		}
 
 	}
 
